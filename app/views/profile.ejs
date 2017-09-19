@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+ <link rel='stylesheet' href='/stylesheets/mainsheet.css' type='text/css' />
+
+
+ <style>
+   body,html{
+    margin:0;
+    padding:0;
+   }
+   
+   .well {
+    background-color:#233237;
+    padding:4%;
+    
+
+   }
+   
+   .userdetail {
+
+       font-size:1.3em;
+    color:white;
+    text-shadow:2px 2px 2px black;
+    font-family: 'Crimson Text', serif;
+    letter-spacing:0.1em;
+   }
+
+ </style>
+</head>
+
+<body>
+
+         
+  <div class='containerfluid'>
+    <div class = 'row'>
+    <div class='well col-md-4' >
+
+  <h5 class='userdetail'><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;<%= user.firstName %></h5>
+
+  <h5 class='userdetail'><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;&nbsp;&nbsp;<%= user.email %></h5>
+
+
+  <h5 class='userdetail'><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;&nbsp;&nbsp;4</h5>
+  <a href='/addproduct'>new product </a>
+       
+  </div>
+
+  </div>
+
+</div>
+
+
+</body>
+</html>

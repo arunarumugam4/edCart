@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+  <style>
+    body,html{
+      margin:0;
+      padding:0;
+      background-color:white;
+      
+    }
+    .container {
+      font-family: 'Bitter', serif;
+      margin-top:2%;
+      padding:5%;
+      background-color:white;
+      
+      margin-bottom:0;
+      
+       }
+ #loginform {
+  width:100%;
+  background-color:;
+  padding:7%;
+  border-radius:6px;
+  box-shadow:0px 0px 7px gray;
+  
+
+  
+ }
+
+  </style>
+</head>
+<body>
+
+         
+  <div class='container'>
+     <h3 style='text-align:center;color:white;text-shadow:2px 2px 2px black'>Login</h3>
+
+    <form action='/login' method='POST' id='loginform'>
+   
+         <% if (message.length>0) { %>
+  <h5  class='alert alert-danger' style='background-color:crimson;font-size:1em;color:white;text-shadow:2px 2px 2px black;'><%= message %></h5>
+<% } %>
+       <div class="form-group">
+        
+     
+     
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input name='email' type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input name='password' type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" minlength='4'>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+
+
+      <h6 style='margin-top:5%;'>if you not a member ? <a href='/signup'>signup</a></h6>
+    </form>
+
+  </div>
+
+
+
+</body>
+</html>
