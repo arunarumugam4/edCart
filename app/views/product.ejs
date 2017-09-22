@@ -40,7 +40,7 @@
   <div class='container'>
      <h3 style='text-align:center;color:white;text-shadow:2px 2px 2px black'>Fill Your Product Details</h3>
 
-    <form action='/api/addproduct' method='POST' id='loginform'>
+    <form action='/api/addproduct' method='POST' id='loginform' enctype="multipart/form-data">
    
          <% if (message.length>0) { %>
   <h5  class='alert alert-danger' style='background-color:crimson;font-size:1em;color:white;text-shadow:2px 2px 2px black;'><%= message %></h5>
@@ -67,6 +67,11 @@
        <div class="form-group">
         <label for="productQuantity">Product Quantity</label>
         <input name='productQuantity' type="number" class="form-control" id="productQuantity" placeholder="Quantity" required>
+      </div>
+
+       <div class="form-group">
+        <label for="productImg">Product Quantity</label>
+        <input name='productImg' type="file" class="form-control" id="productImg" placeholder="product image" required>
       </div>
 
 

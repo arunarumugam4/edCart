@@ -3,60 +3,104 @@
 <head>
   <meta charset='utf-8'/>
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
- <link rel='stylesheet' href='/stylesheets/mainsheet.css' type='text/css' />
+  <style>
+    body,html{
+      margin:0;
+      padding:0;
+      background-color:white;
+      overflow-x:hidden;
+      
+    }
+    .containerfluid {
+      font-family: 'Bitter', serif;
+      padding:2%;
+      
+       }
+ 
 
 
- <style>
-   body,html{
-    margin:0;
-    padding:0;
-   }
-   
-   .well {
-    background-color:#233237;
-    padding:4%;
-    
 
-   }
-   
-   .userdetail {
+.productcard {
 
-       font-size:1.3em;
-    color:white;
-    text-shadow:2px 2px 2px black;
-    font-family: 'Crimson Text', serif;
-    letter-spacing:0.1em;
-   }
+  padding:2%;
+  margin-top:2%;
+  text-align:center;
+  border-radius:4px;
+  box-shadow:0 0 6px  gray;
 
- </style>
+}
+
+.productImg {
+  width:80%;
+  height:250px;
+
+}
+
+#user {
+  text-shadow:2px 2px 2px solid black;
+  border-radius:3px;
+  box-shadow:0px 0px 5px gray;
+  text-align:center;
+  padding:8%;
+  background-color:#A2AB58;
+  color:white;
+}
+
+
+  </style>
 </head>
-
 <body>
 
          
   <div class='containerfluid'>
-    <div class = 'row'>
-    <div class='well col-md-4' >
-
-  <h5 class='userdetail'><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;<%= user.firstName %></h5>
-
-  <h5 class='userdetail'><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;&nbsp;&nbsp;<%= user.email %></h5>
 
 
-  <h5 class='userdetail'><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;&nbsp;&nbsp;4</h5>
-  <a href='/addproduct'>new product </a>
-       
-  </div>
+     <h3 style='text-align:center;color:white;text-shadow:2px 2px 2px black'>edCart</h3>
 
-  </div>
+      <div class='row'>
 
-</div>
+       <div class='col-md-3'>
+       <div id='user'>
+       <h6 style='text-align:center;color:crimson;text-shadow:1px 1px 1px black;'>arun</h6>
+        <h6 style='text-align:center;color:crimson;text-shadow:1px 1px 1px black;'>coolarun477@gmail.com</h6>
+       <a href='/cart'><h6 class='btn btn-success btn-sm cool' style='text-align:center;color:white;text-shadow:1px 1px 1px black;text-align:left;cursor:pointer;'>cart</h6></a>
+       <h6 class='btn btn-success btn-sm cool' style='text-align:center;color:white;text-shadow:1px 1px 1px black;text-align:left;cursor:pointer;'>products</h6>
+
+      </div>
+
+         <video id="vid"  width="100%" height="500px" autoplay="autoplay" loop muted>
+            <source src="/vedios/branding.mp4">
+              <source src="/vedios/branding.mp4">
+                
+              </video> 
+
+         
+       </div>
+
+       <div class='col-md-9'>
+         <div class='row' id='parentCard'>
+          
 
 
+           
+           
+         </div>
+       </div>
+
+     </div>
+
+
+
+    </div>
+
+
+<!-- jquery and bootstrap scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- local script -->
+<script src='/scripts/main.js'></script>
 </body>
 </html>

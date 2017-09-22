@@ -14,7 +14,6 @@ const responseGenerator = require('./customLib/responseGenerator');
 
 
 
-
 // INITIALIZE EXPRESS APP
 const app = express();
 
@@ -74,6 +73,7 @@ fs.readdirSync('./app/models/').forEach((filename)=>{
 
 
 
+
 // SET OUR ROUTES
 fs.readdirSync('./app/controllers/').forEach((filename) =>{
 	if(filename.indexOf('.js') !== -1){
@@ -87,7 +87,7 @@ fs.readdirSync('./app/controllers/').forEach((filename) =>{
 
 // SET 404 PAGE
 app.get('*', function(req, res){
-  res.render('404.ejs');
+  res.redirect('/');
 });
 
 // SET 400 ERROR FOR INVALID API'S

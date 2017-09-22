@@ -16,24 +16,14 @@
     .containerfluid {
       font-family: 'Bitter', serif;
       padding:2%;
-
       
        }
- #loginform {
-        width:100%;
-        background-color:;
-        padding:7%;
-        border-radius:6px;
-        box-shadow:0px 0px 7px gray;
-}
+ 
 
-/*.cool{
-       border-bottom:1px;
-       border:1px solid black;
-       background-color:gray;
-}*/
+
 
 .productcard {
+
   padding:2%;
   margin-top:2%;
   text-align:center;
@@ -43,10 +33,8 @@
 }
 
 .productImg {
-  width:100%;
-}
-
-.wrapper {
+  width:80%;
+  height:250px;
 
 }
 
@@ -60,7 +48,6 @@
   color:white;
 }
 
-
   </style>
 </head>
 <body>
@@ -71,42 +58,28 @@
 
      <h3 style='text-align:center;color:white;text-shadow:2px 2px 2px black'>edCart</h3>
 
-      <div class='row '>
+      <div class='row'>
 
-       <div class='col-md-3 user'>
+       <div class='col-md-3'>
        <div id='user'>
         <h6 style='text-align:center;color:crimson;text-shadow:1px 1px 1px black;'>arun</h6>
         <h6 style='text-align:center;color:crimson;text-shadow:1px 1px 1px black;'>coolarun477@gmail.com</h6>
-       <h6 class='btn btn-success btn-sm cool' style='text-align:center;color:white;text-shadow:1px 1px 1px black;text-align:left;cursor:pointer;'>cart</h6>
+      <a href='/profile'> <h6 class='btn btn-success btn-sm cool' style='text-align:center;color:white;text-shadow:1px 1px 1px black;text-align:left;cursor:pointer;'>Home</h6></a>
        <h6 class='btn btn-success btn-sm cool' style='text-align:center;color:white;text-shadow:1px 1px 1px black;text-align:left;cursor:pointer;'>products</h6>
       </div>
       
 
+        
 
          
        </div>
 
        <div class='col-md-9'>
-        <h4 style='text-align:center;color:black;'>your cart</h4>
-         <div class='row wrapper' >
 
-           <div class='col-md-3'><div class='well productcard'><img class='productImg' src="C:/Users/Ashok/Desktop/Level-8/edCart/public/productImages/productImg-1505924268031-blue-t-shirt.jpg"/>
+         <div class='row' id='parentCard'>
            
-          <h6 style="text-align:left;font-size:0.9em">Name:</h6>
-          <h6 style="text-align:left;font-size:0.9em">Price:</h6>
-          
-          <h6 class='btn btn-primary' style="text-align:left;font-size:0.9em;cursor:pointer;">Add to cart</h6>
-           </div></div>
-
-           <div class='col-md-3'><div class='well productcard'><img class='productImg' src="C:/Users/Ashok/Desktop/Level-8/edCart/public/productImages/productImg-1505924268031-blue-t-shirt.jpg"/></div></div>
 
 
-           <div class='col-md-3'><div class='well productcard'><img class='productImg' src="C:/Users/Ashok/Desktop/Level-8/edCart/public/productImages/productImg-1505924268031-blue-t-shirt.jpg"/></div></div>
-
-
-           <div class='col-md-3'><div class='well productcard'><img class='productImg' src="C:/Users/Ashok/Desktop/Level-8/edCart/public/productImages/productImg-1505924268031-blue-t-shirt.jpg"/></div></div>
-
-           <div class='col-md-3'><div class='well productcard'><img class='productImg' src="C:/Users/Ashok/Desktop/Level-8/edCart/public/productImages/productImg-1505924268031-blue-t-shirt.jpg"/></div></div>
            
            
          </div>
@@ -124,6 +97,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- local script -->
-<script src='/scripts/main.js'></script>
+<script src='/scripts/cart.js'></script>
 </body>
 </html>

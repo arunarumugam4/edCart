@@ -9,7 +9,7 @@ let productSchema = new Schema({
       _productOwner : {type:Schema.ObjectId, ref:'userModel'},
       productName : {type:String, default:''},
       productPrice : {type:Number, default:0},
-      //productImage : {data:Buffer,contentType:String},
+      productImage : {type:String, default:'/productImages/avatar-1505828111327-imgnotavailable.jpg'},
       productAdded : {type:Date, default:Date.now()},
       productCategory: {type:String, default:''},
       productQuantity: {type:Number, default:0}

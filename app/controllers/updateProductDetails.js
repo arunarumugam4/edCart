@@ -26,7 +26,7 @@ module.exports = function(app,passport, responseGenerator){
           
           if(!req.body.productName && !req.body.productPrice && !req.body.productCategory && !req.body.productQuantity ){
                 
-                let response = responseGenerator(false,"Some parameters are missing, provide all the body parameter eventhoug that prperty is not edited",200, null);
+                let response = responseGenerator(false,"Some parameters are missing, provide all the body parameter eventhough that property is not edited",200, null);
                 res.send(response);
           }
           // UPDATE THE PRODUCT DETAILS

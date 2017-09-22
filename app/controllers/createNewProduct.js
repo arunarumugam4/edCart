@@ -13,13 +13,29 @@ let userModel = mongoose.model('userModel');
 let isProductAvailable = require('../../middlewares/isProductAvailable');
 let checkProductFields = require('../../middlewares/checkProductFields');
 
+// CONFIGURE MULTER FOR PARSE MULTIPART-FORMDATA
+let path = require('path');
+let multer  = require('multer');
+let storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname,'../../public/productImages')); // STORE THE IMAGE TO THE STATIC FILE FOLDER
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now()+'-'+file.originalname); // THIS CREATES UNIQUE FILE NAME FOR EACH FILE
+  }
+})
+
+let upload = multer({ storage: storage });
+
+
 
 // EXPORT
 module.exports = function(app,passport,responseGenerator){
       
 	// API FOR ADD PRODUCT
-	router.post('/addproduct',isLoggedIn,checkProductFields,(req, res)=>{
-         
+	router.post('/addproduct',isLoggedIn,upload.single('productImg'),checkProductFields,(req, res)=>{
+         console.log(req.file);
+         console.log(req.body);
          // CHECK THE USER IN DATABASE
 		userModel.findOne({'local.email':req.user.local.email}, function(err, user){
             
@@ -30,6 +46,9 @@ module.exports = function(app,passport,responseGenerator){
 			newProduct.productPrice = req.body.productPrice;
 			newProduct.productCategory = req.body.productCategory;
 			newProduct.productQuantity = req.body.productQuantity;
+             // CREATE PRODUCT IMAGE URL
+      let imgUrl = '/productImages/';
+      newProduct.productImage = imgUrl + req.file.filename;
 
            // PUSH THIS PRODUCT ID TO THE USERS PRODUCTS ARRAY
 		   user.local.userProducts.push(newProduct);
@@ -51,7 +70,7 @@ module.exports = function(app,passport,responseGenerator){
 
               // SEND THE CREATED PRODUCT AS A RESPONSE
               let response = responseGenerator(false,"product has been successfully created",200,product);
-              res.json(response);
+              res.redirect('/profile');
 
               }
 
