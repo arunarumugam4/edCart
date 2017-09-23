@@ -64,7 +64,7 @@ module.exports = function(app,passport,responseGenerator){
                             // DELETE THE PASSWORD BEFORE SENT IT TO THE CLIENT
 
                             delete user.local.password;
-                    		let response = responseGenerator(false,"porduct has been successfully added to the cart",200,user);
+                    		let response = responseGenerator(false,"porduct has been successfully added to the cart",200,product);
                     		res.json(response);
 
                     		    }

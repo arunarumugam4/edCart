@@ -25,7 +25,7 @@
 .productcard {
 
   padding:2%;
-  margin-top:2%;
+  margin-top:4%;
   text-align:center;
   border-radius:4px;
   box-shadow:0 0 6px  gray;
@@ -48,6 +48,11 @@
   color:white;
 }
 
+.productcard {
+  display:none;
+
+  
+}
 
   </style>
 </head>
@@ -63,10 +68,13 @@
 
        <div class='col-md-3'>
        <div id='user'>
-       <h6 style='text-align:center;color:crimson;text-shadow:1px 1px 1px black;'>arun</h6>
-        <h6 style='text-align:center;color:crimson;text-shadow:1px 1px 1px black;'>coolarun477@gmail.com</h6>
+
+       <h6 id='uname' style='text-align:center;color:crimson;text-shadow:1px 1px 1px black;'>arun</h6>
+        <h6 id='email' style='text-align:center;color:crimson;text-shadow:1px 1px 1px black;'>coolarun477@gmail.com</h6>
        <a href='/cart'><h6 class='btn btn-success btn-sm cool' style='text-align:center;color:white;text-shadow:1px 1px 1px black;text-align:left;cursor:pointer;'>cart</h6></a>
        <h6 class='btn btn-success btn-sm cool' style='text-align:center;color:white;text-shadow:1px 1px 1px black;text-align:left;cursor:pointer;'>products</h6>
+
+       <a id='logout' style='text-align:right;color:blue;' href=''>logout</a>
 
       </div>
 
