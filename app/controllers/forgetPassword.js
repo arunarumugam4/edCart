@@ -2,18 +2,20 @@ let express = require('express');
 let router = express.Router(); // INITIALIZE EXPRESS ROUTER
 let nodemailer = require('nodemailer'); // FOR SMTP MAIL SERVER
 let isEmailValid = require('../../middlewares/isEmailValid');
+let mongoose = require('mongoose');
+let userSecret = mongoose.model('userSecret');
+
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 // CONFIGURE SMTP SERVER
-const SMTP = nodemailer.createTransport({
-    service: "gmail",
-    host: "smtp.gmail.com",
-    auth: {
-        user: "coolnuke477@gmail.com",
-        pass: "badboy333"
-    }
-});
+const SMTP = require('../../config/SMTP-CONFIG');
 
+
+// EXPORT
 module.exports = function(app,passport,responseGenerator){
+
+
 
 	// FORGET PASSWORD PAGE VIEW
 	router.get('/forgetpassword', (req, res) => {
@@ -22,29 +24,45 @@ module.exports = function(app,passport,responseGenerator){
 	}); //END
 
 
-     
+
    // FORGET PASSWORD PROCESSOR
-     router.post('/api/forgetpassword',isEmailValid, (req, res)=>{
+   router.post('/api/forgetpassword',isEmailValid, (req, res)=>{
 
-     	let mailOptions={
-        to : req.body.email,
-        subject :"PASSWORD RECOVERY",
-        text : "YOUR PASSWORD"
-    };
 
-     SMTP.sendMail(mailOptions, function(error, response){
-     if(error){
-            console.log(error);
-        res.send("error");
-     }else{
-            console.log("Message sent: " + response.message);
-        res.end("sent");
-         }
-});
+   	userSecret.findOne({"email":req.body.email}, function(err,secrets){
+   		if(err){
+   			throw err;
+   			console.log(err);
+   		};
+
+   		let mailOptions={
+   			to : secrets.email,
+   			subject :"PASSWORD RECOVERY",
+   			text :"  user name : "+ secrets.userName + "   password :  "+ secrets.password 
+   		};
+
+   		SMTP.sendMail(mailOptions, function(error, response){
+   			if(error){
+   				console.log(error);
+   				res.send("error");
+   			}else{
+   				console.log( response);
+   				req.flash('loginMessage','Password has been sent to your email address');
+   				res.redirect('/login')
+   			}
+   		});
+
+
+
+   	})
+
+
+
+
 
 
      }); // END
-	
+
 	// MOUNT OUR ROUTER IN APP AS APP LEVEL MIDDLEWARE
 	app.use('/',router);
 }

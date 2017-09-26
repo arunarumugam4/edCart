@@ -5,12 +5,15 @@
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css">
+
   <style>
     body,html{
       margin:0;
       padding:0;
       background-color:white;
       overflow-x:hidden;
+
       
     }
     .containerfluid {
@@ -89,6 +92,23 @@
       display:none;
     }
 
+    .webui-popover{
+          width:30% !important;
+          margin:auto;
+          left:10%;
+          right:20%;
+    }
+
+    @media screen and (max-width:700px){
+         .webui-popover{
+          width:80% !important;
+          margin:auto;
+          left:10%;
+          right:10%;
+    }
+
+    }
+
 </style>
 </head>
 <body>
@@ -97,7 +117,7 @@
   <div class='containerfluid'>
 
 
-   <h3 style='text-align:center;color:white;text-shadow:0px 0px 1px black'>ed<span style='color:crimson !important;'>Cart</span></h3>
+   <h3 style='text-align:center;color:white;text-shadow:2px 2px 2px black'>ed<span style='color:crimson !important;'>Cart</span></h3>
 
    <div class='row'>
 
@@ -106,9 +126,12 @@
         <h6 id='uname' style='text-align:center;color:crimson;text-shadow:0px 0px 1px black;'>arun</h6>
         <h6 id='email' style='text-align:center;color:crimson;text-shadow:0px 0px 1px black;'>coolarun477@gmail.com</h6>
         <a href='/profile'> <h6 class='btn btn-success btn-sm cool' style='text-align:center;text-shadow:0px 0px 1px black;text-align:left;cursor:pointer;'>Home</h6></a>
-       <a href='/userproducts'><h6 class='btn btn-success btn-sm cool' style='text-align:center;text-shadow:0px 0px 1px black;text-align:left;cursor:pointer;'>user products</h6></a>
+       <a href='/cart'><h6 class='btn btn-success btn-sm cool' style='text-align:center;text-shadow:0px 0px 1px black;text-align:left;cursor:pointer;'>cart</h6></a>
 
         <a id='logout' style='text-align:right;color:blue;' href=''><h6 class='btn btn-success btn-sm cool' style='text-align:center;text-shadow:0px 0px 1px black;text-align:left;cursor:pointer;'>logout</h6></a></a>
+
+         <a href='/addproduct'><h6 class='btn btn-success btn-sm cool' style='text-align:center;text-shadow:0px 0px 1px black;text-align:left;cursor:pointer;'>Add New Product</h6></a>
+
       </div>
       
       <div id='cartdetails'>
@@ -121,10 +144,11 @@
     </div>
 
     <div class='col-md-9'>
-       <h6 style="border-radius:3px;position:fixed;color:white;z-index:2;background-color:#173D4C;padding:7px;width:50%;text-shadow:2px 2px 2px black" id="notification">product has been removed from the cart !!</h6>
+       <div id='mainbox'></div>
+       <h6 style="border-radius:3px;position:fixed;color:white;z-index:2;background-color:#173D4C;padding:7px;width:50%;text-shadow:2px 2px 2px black" id="notification">product completly removed !!</h6>
      <div class='row' id='parentCard'>
        
-
+      
 
        
        
@@ -139,10 +163,12 @@
 
 
 <!-- jquery and bootstrap scripts -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- local script -->
-<script src='/scripts/cart.js'></script>
+
+<script src='/scripts/userproducts.js'></script>
 </body>
 </html>

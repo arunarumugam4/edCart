@@ -4,7 +4,7 @@
   <meta charset='utf-8'/>
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
   <style>
     body,html{
       margin:0;
@@ -20,66 +20,83 @@
       
       margin-bottom:0;
       
-       }
- #loginform {
-  width:100%;
-  background-color:;
-  padding:7%;
-  border-radius:6px;
-  box-shadow:0px 0px 7px gray;
-  
+    }
+    #loginform {
+      width:100%;
+      background-color:;
+      padding:7%;
+      border-radius:6px;
+      box-shadow:0px 0px 7px gray;
+  }
 
-  
- }
+          .cool {
+      background-color:white;
+      color:black;
+      border:2px solid gray;
+    }
+
+    .cool:hover{
+      background-color:#173D4C;
+      border:2px solid #173D4C;
+      color:white !important;
+    }
+
+    .nuke:focus {
+      border:2px solid #173D4C;
+    }
+
+  *{
+      color:#173D4C !important;
+    }
 
   </style>
 </head>
 <body>
 
-         
+ 
   <div class='container'>
-     <h3 style='text-align:center;color:white;text-shadow:2px 2px 2px black'>Fill Your Product Details</h3>
+   <h3 style='text-align:center;color:white !important;text-shadow:2px 2px 2px black'>Fill Your <span style='color:crimson !important;'>Product Details</span></h3>
 
-    <form action='/api/addproduct' method='POST' id='loginform' enctype="multipart/form-data">
-   
-         <% if (message.length>0) { %>
-  <h5  class='alert alert-danger' style='background-color:crimson;font-size:1em;color:white;text-shadow:2px 2px 2px black;'><%= message %></h5>
-<% } %>
-       <div class="form-group">
-        
+   <form action='/api/addproduct' method='POST' id='loginform' enctype="multipart/form-data">
      
-     
+     <% if (message.length>0) { %>
+     <h5  class='alert alert-danger' style='background-color:#173D4C;font-size:1em;color:white !important;text-shadow:2px 2px 2px black;'><%= message %></h5>
+     <% } %>
+     <div class="form-group">
+      
+       
+       
       <div class="form-group">
         <label for="ProductName">Product Name</label>
-        <input name='productName' type="text" class="form-control" id="productName"  placeholder="Name" required>
+        <input name='productName' type="text" class="form-control nuke" id="productName"  placeholder="Name" required autofocus>
         
       </div>
       <div class="form-group">
         <label for="productCategory">Product Category</label>
-        <input name='productCategory' type="text" class="form-control" id="ProductCategory" placeholder="Category"  required>
+        <input name='productCategory' type="text" class="form-control nuke" id="ProductCategory" placeholder="Category"  required>
       </div>
 
-       <div class="form-group">
+      <div class="form-group">
         <label for="productPrice">Product Pice</label>
-        <input name='productPrice' type="number" class="form-control" id="productPrice" placeholder="Price" required>
+        <input name='productPrice' type="number" class="form-control nuke" id="productPrice" placeholder="Price" required>
       </div>
 
-       <div class="form-group">
+      <div class="form-group">
         <label for="productQuantity">Product Quantity</label>
-        <input name='productQuantity' type="number" class="form-control" id="productQuantity" placeholder="Quantity" required>
+        <input name='productQuantity' type="number" class="form-control nuke" id="productQuantity" placeholder="Quantity" required>
       </div>
 
-       <div class="form-group">
-        <label for="productImg">Product Quantity</label>
-        <input name='productImg' type="file" class="form-control" id="productImg" placeholder="product image" required>
+      <div class="form-group">
+        <label for="productImg">Product Image</label>
+        <input name='productImg' type="file" class="form-control nuke" id="productImg" placeholder="product image" required>
       </div>
 
 
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary cool">Submit</button>
+        <h6 style='margin-top:5%;'>Back to  <a href='/userproducts'>Profile</a></h6>
 
-
-     
+      
     </form>
 
   </div>

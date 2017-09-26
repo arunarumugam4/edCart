@@ -26,7 +26,7 @@ module.exports = function(app,passport,responseGenerator){
 	router.get('/api/logout', function(req, res){
 		req.logout();
 		let response = responseGenerator(false,"successfully logged Out",200,null);
-		res.json(response);
+		res.redirect('/login');
 	})
 
 	// MOUNT OUR ROUTER IN APP AS APP LEVEL MIDDLEWARE

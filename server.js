@@ -26,11 +26,11 @@ app.use(cookieParser());
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended:true}));
 app.use(session({ secret:'hey cool stop this mess!!', 
-	              resave:false, 
-	              httpOnly:true,
-	              saveUninitialized:true,
-	              cookie : {secure:false}
-       }));
+	resave:false, 
+	httpOnly:true,
+	saveUninitialized:true,
+	cookie : {secure:false}
+}));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -65,7 +65,7 @@ db.once('open',() => {
 // SET OUR MODELS
 fs.readdirSync('./app/models/').forEach((filename)=>{
 	if(filename.indexOf('.js') !== -1){
-		 require(`./app/models/${filename}`);
+		require(`./app/models/${filename}`);
 		
 	}
 
@@ -87,7 +87,7 @@ fs.readdirSync('./app/controllers/').forEach((filename) =>{
 
 // SET 404 PAGE
 app.get('*', function(req, res){
-  res.redirect('/');
+	res.redirect('/');
 });
 
 // SET 400 ERROR FOR INVALID API'S
@@ -102,5 +102,6 @@ app.listen(port, ()=>{
 	console.log('------------------------------------------------------------------');
 	console.log(`| ***** Server is waiting to receive you on port ${port} ********   |`);
 	console.log('------------------------------------------------------------------');
-})
+});
 
+// END

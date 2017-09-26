@@ -15,27 +15,19 @@ let userSchema = Schema({
 		cartCount : {type:Number, default:0},
 		userProducts :[{type:Schema.ObjectId, ref:'productModel'}]
 
-	},
-
-	facebook : {
-		id       : {type:String},
-		token    : {type:String},
-		email    : {type:String},
-		name     : {type:String}
-
 	}
-})
+});
 
 // DEFINING SCHEMA METHODS
     // FOR GENERATING HASH
-userSchema.methods.createHash = function(password){
-	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-}
+    userSchema.methods.createHash = function(password){
+    	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+    }
     // CHECK FOR A VALID PASSWORD
-userSchema.methods.checkHash = function(password){
-	return bcrypt.compareSync(password, this.local.password);
-}
+    userSchema.methods.checkHash = function(password){
+    	return bcrypt.compareSync(password, this.local.password);
+    }
 
 
-let userModel = mongoose.model('userModel', userSchema);
-module.exports = userModel;
+    let userModel = mongoose.model('userModel', userSchema);
+    module.exports = userModel;

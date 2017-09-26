@@ -4,12 +4,12 @@
   <meta charset='utf-8'/>
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
   <style>
     body,html{
       margin:0;
       padding:0;
-     
+      
       background-color:white;
       
     }
@@ -19,65 +19,82 @@
       padding:5%;
       background-color:white;
       
-       }
- #loginform {
-  width:100%;
-  background-color:white;
-  padding:7%;
-  border-radius:6px;
-  box-shadow:0px 0px 7px gray;
-  
+    }
+    #loginform {
+      width:100%;
+      background-color:white;
+      padding:7%;
+      border-radius:6px;
+      box-shadow:0px 0px 7px gray;
+      
+    }
 
-  
- }
+      .cool {
+      background-color:white;
+      color:black;
+      border:2px solid gray;
+    }
+
+    .cool:hover{
+      background-color:#173D4C;
+      border:2px solid #173D4C;
+      color:white !important;
+    }
+
+    .nuke:focus {
+      border:2px solid #173D4C;
+    }
+    *{
+      color:#173D4C !important;
+    }
 
   </style>
 </head>
 <body>
 
-         
+ 
   <div class='container'>
-     <h3 style='text-align:center;color:white;text-shadow:2px 2px 2px black'>signUp</h3>
+   <h3 style='text-align:center;color:white !important;text-shadow:2px 2px 2px black'>sign<span style='color:crimson !important;'>Up</span></h3>
 
-    <form action='/signup' method='POST' id='loginform'>
-   
-         <% if (message.length>0) { %>
-  <h5  class='alert alert-danger' style='background-color:crimson;font-size:1em;color:white;text-shadow:2px 2px 2px black;'><%= message %></h5>
-<% } %>
-       <div class="form-group">
-        <label for="exampleInputPassword1">First Name</label>
-        <input name='firstName' type="text" class="form-control" id="exampleInputPassword1" placeholder="First Name" minlength='3'>
-      </div>
-
-       <div class="form-group">
-        <label for="exampleInputPassword1">Last Name</label>
-        <input name='lastName' type="text" class="form-control" id="exampleInputPassword1" placeholder="Last Name" minlength='3'>
-      </div>
+   <form action='/signup' method='POST' id='loginform'>
      
-     
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input name='email' type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input name='password' type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" minlength='4'>
-      </div>
+     <% if (message.length>0) { %>
+     <h5  class='alert alert-danger' style='background-color:#173D4C !important;font-size:1em;color:white !important;text-shadow:2px 2px 2px black;'><%= message %></h5>
+     <% } %>
+     <div class="form-group">
+      <label for="exampleInputPassword1">First Name</label>
+      <input name='firstName' type="text" class="form-control nuke" id="exampleInputPassword1" placeholder="First Name" minlength='3' autofocus>
+    </div>
 
-      <div class="form-group">
-        <label for="exampleInputPassword2">Confirm Password</label>
-        <input name='confirmPassword' type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" minlength='4'>
-      </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Last Name</label>
+      <input name='lastName' type="text" class="form-control nuke" id="exampleInputPassword1" placeholder="Last Name" minlength='3'>
+    </div>
+    
+    
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input name='email' type="email" class="form-control nuke" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input name='password' type="password" class="form-control nuke" id="exampleInputPassword1" placeholder="Password" minlength='4'>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword2">Confirm Password</label>
+      <input name='confirmPassword' type="password" class="form-control nuke" id="exampleInputPassword1" placeholder="Password" minlength='4'>
+    </div>
 
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary cool">Submit</button>
 
 
-      <h6 style='margin-top:5%;'>if already signed up? <a href='/login'>login</a></br>or </br><a href='/'>Home</a></h6>
-    </form>
+    <h6 style='margin-top:5%;'>if already signed up? <a href='/login'>login</a></br>or </br><a href='/'>Home</a></h6>
+  </form>
 
-  </div>
+</div>
 
 
 

@@ -30,7 +30,7 @@ $(document).ready(function(){
           "<h6 style='text-align:left;font-size:0.9em'>Price:<span style='color:crimson'>"+$.allproducts[i].productPrice+" Rupees</span></h6>"+
           "<h6 style='text-align:left;font-size:0.9em'>Quantity:<span style='color:crimson' id="+$.allproducts[i]._id+">"+$.allproducts[i].productQuantity+"</span></h6>"+
           "<h6 style='text-align:left;font-size:0.9em'>Category:<span style='color:crimson' >"+$.allproducts[i].productCategory+"</span></h6>"+
-          "<h6 class='btn btn-primary addcart' style='text-align:left;font-size:0.9em;cursor:pointer;' productId= "+$.allproducts[i]._id+">Add to cart</h6>"+
+          "<h6 class='btn btn-primary addcart cool' style='text-align:left;font-size:0.9em;cursor:pointer;' productId= "+$.allproducts[i]._id+">Add to cart</h6>"+
            "</div></div>";
            $('#parentCard').prepend(card);
 
@@ -52,11 +52,27 @@ $(document).ready(function(){
     },
     function(response, status){
     	console.log(response);
-    	
+    	 if(response.status===200){
           let QuantityUpdate = response.data.productQuantity;
           let id ="#"+$.productId;
+           $('#notification').fadeIn();
+          // SHOW NOTIFICATION AND REMOVE IT AFTER FEW SECONDS
+           $('#notification').html('product has been successfully added to the cart');
+          setInterval(()=>{
+             $('#notification').fadeOut();
+          }, 5000)
           
          $(id).html(String(QuantityUpdate));
+       } else{
+         console.log('this prouduct is out of stock');
+
+           $('#notification').fadeIn();
+          // SHOW NOTIFICATION AND REMOVE IT AFTER FEW SECONDS
+           $('#notification').html('Sorry, this product is out of stock');
+          setInterval(()=>{
+             $('#notification').fadeOut();
+          }, 5000)
+       }
         
     });
 
@@ -76,7 +92,7 @@ $(document).ready(function(){
           $.ajax({url:"/api/logout",
 		success: function(response){
 			console.log(response);
-		    location.pathname = '/';
+		    //location.reload();
 		}
         
         });

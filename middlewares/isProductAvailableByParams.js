@@ -4,8 +4,8 @@ const productModel = mongoose.model('productModel');
 const responseGenerator = require('../customLib/responseGenerator');
 
 module.exports = function(req, res, next){
-
-	productModel.findById(req.body.id, function(err, product){
+  
+	productModel.findById(req.params.productId, function(err, product){
 		console.log(product);
 		if(product){
 			return next();

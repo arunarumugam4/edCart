@@ -17,7 +17,7 @@ module.exports = function(app, passport, responseGenerator){
 
 	router.get('/allproducts',isLoggedForQueryProducts,function(req,res){
           
-          // QUERY ALL PRODUCTs FROM THE DATABASE
+          // QUERY ALL PRODUCTS FROM THE DATABASE
           productModel.find({},function(err, products){
           	if(err){
           		throw err;

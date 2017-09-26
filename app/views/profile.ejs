@@ -4,7 +4,7 @@
   <meta charset='utf-8'/>
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
   <style>
     body,html{
       margin:0;
@@ -17,82 +17,108 @@
       font-family: 'Bitter', serif;
       padding:2%;
       
-       }
- 
+    }
+    
 
 
 
-.productcard {
+    .productcard {
 
-  padding:2%;
-  margin-top:4%;
-  text-align:center;
-  border-radius:4px;
-  box-shadow:0 0 6px  gray;
+      padding:2%;
+      margin-top:4%;
+      text-align:center;
+      border-radius:4px;
+      box-shadow:0 0 6px  gray;
 
-}
+    }
 
-.productImg {
-  width:80%;
-  height:250px;
+    .productImg {
+      width:80%;
+      height:250px;
 
-}
+    }
 
-#user {
-  text-shadow:2px 2px 2px solid black;
-  border-radius:3px;
-  box-shadow:0px 0px 5px gray;
-  text-align:center;
-  padding:8%;
-  background-color:#A2AB58;
-  color:white;
-}
+    #user {
+      text-shadow:2px 2px 2px solid black;
+      border-radius:3px;
+      box-shadow:0px 0px 5px gray;
+      text-align:center;
+      padding:8%;
+      background-color:white;
+      color:white;
+    }
 
-.productcard {
-  display:none;
+    .productcard {
+      display:none;
 
-  
-}
+      
+    }
+    #notification{
+      display:none;
+    }
+
+    #vid {
+      margin-top:3%;
+
+
+    }
+
+    .cool {
+      background-color:white;
+      color:black;
+      border:2px solid gray;
+    }
+
+    .cool:hover{
+      background-color:#173D4C;
+      border:2px solid #173D4C;
+      color:white !important;
+    }
+
+  @media  screen and (max-width:800px){
+    #vid {
+      display:none !important;
+    }
+  }
 
   </style>
 </head>
 <body>
 
-         
+ 
   <div class='containerfluid'>
 
 
-     <h3 style='text-align:center;color:white;text-shadow:2px 2px 2px black'>edCart</h3>
+   <h3 style='text-align:center;color:white;text-shadow:2px 2px 2px black'>ed<span style='color:crimson;'>Cart</span></h3>
 
-      <div class='row'>
+   <div class='row'>
+    
+     
 
-       <div class='col-md-3'>
+     <div class='col-md-3'>
        <div id='user'>
 
-       <h6 id='uname' style='text-align:center;color:crimson;text-shadow:1px 1px 1px black;'>arun</h6>
-        <h6 id='email' style='text-align:center;color:crimson;text-shadow:1px 1px 1px black;'>coolarun477@gmail.com</h6>
-       <a href='/cart'><h6 class='btn btn-success btn-sm cool' style='text-align:center;color:white;text-shadow:1px 1px 1px black;text-align:left;cursor:pointer;'>cart</h6></a>
-       <h6 class='btn btn-success btn-sm cool' style='text-align:center;color:white;text-shadow:1px 1px 1px black;text-align:left;cursor:pointer;'>products</h6>
+         <h6 id='uname' style='text-align:center;color:crimson;text-shadow:0px 0px 1px black;'>arun</h6>
+         <h6 id='email' style='text-align:center;color:crimson;text-shadow:0px 0px 1px black;'>coolarun477@gmail.com</h6>
+         <a href='/cart'><h6 class='btn btn-success btn-sm cool' style='text-align:center;color:black;text-shadow:0px 0px 1px black;text-align:left;cursor:pointer;'>cart</h6></a>
+        <a href='/userproducts'> <h6 class='btn btn-success btn-sm cool' style='text-align:center;color:black;text-shadow:0px 0px 1px black;text-align:left;cursor:pointer;'>user products</h6></a>
 
-       <a id='logout' style='text-align:right;color:blue;' href=''>logout</a>
+         <a id='logout' style='text-align:right;color:blue;' href=''><h6 class='btn btn-success btn-sm cool' style='text-align:center;color:black;text-shadow:0px 0px 1px black;text-align:left;cursor:pointer;'>logout</h6></a></a>
 
-      </div>
-
-         <video id="vid"  width="100%" height="500px" autoplay="autoplay" loop muted>
-            <source src="/vedios/branding.mp4">
-              <source src="/vedios/branding.mp4">
-                
-              </video> 
-
-         
        </div>
 
-       <div class='col-md-9'>
-         <div class='row' id='parentCard'>
+       <video id="vid"  width="100%" height="500px" autoplay="autoplay" loop muted>
+        <source src="/vedios/branding.mp4">
+          <source src="/vedios/branding.mp4">
+            
+          </video> 
+
           
+        </div>
 
-
-           
+        <div class='col-md-9'>
+         <h6 style="border-radius:3px;position:fixed;color:white;z-index:2;background-color:#173D4C;padding:7px;width:50%;text-shadow:2px 2px 2px black" id="notification">product has been added to the cart !!</h6>
+         <div class='row' id='parentCard'>  
            
          </div>
        </div>
@@ -101,14 +127,15 @@
 
 
 
-    </div>
+   </div>
 
 
-<!-- jquery and bootstrap scripts -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <!-- jquery and bootstrap scripts -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+   <!-- local script -->
 
-<!-- local script -->
-<script src='/scripts/main.js'></script>
-</body>
-</html>
+   <script src='/scripts/main.js'></script>
+ </body>
+ </html>
